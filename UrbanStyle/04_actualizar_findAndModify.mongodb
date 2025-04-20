@@ -1,0 +1,36 @@
+// Empezamos a crear una base de datos UrbanStyle Store
+use("UrbanStyle_store")
+
+/* findAndModify
+Es una operación utilizada para encontrar un documento, 
+modificarlo (actualizarlo o reemplazarlo) y devolver el 
+documento antes o después de la modificación en una sola
+operación atómica.
+*/
+
+// Actualizar el producto "Conjunto Deportivo" los siguientes datos: 
+// talla M y S, e incrementar en 15 soles el precio y 10 nuevas unidades más.
+
+db.products.findAndModify(
+    {
+        query: { nombre: "Conjunto Deportivo" },
+        update: { 
+            $set: { talla: [ "M", "S" ] },
+            $inc: { precio: 15, cantidad: 10 }
+        },
+        new: true, // muestra el documento con los cambios
+        upsert: true // si el documento no existe lo crea
+    }
+)
+
+// Lista los datos cambiados
+db.products.find(
+    { nombre: "Conjunto Deportivo" },
+    {
+        _id: 0,
+        nombre: 1,
+        talla: 1,
+        precio: 1,
+        cantidad: 1
+    }
+)

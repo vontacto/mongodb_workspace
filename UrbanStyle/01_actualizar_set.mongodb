@@ -1,0 +1,33 @@
+// Empezamos a crear una base de datos
+use("UrbanStyle_store")
+
+
+db.clients.updateOne(
+    {
+        _id: ObjectId('680453395c526566c1e04bd7')
+    },
+    {
+        $set: {
+            apellidos: "Gonzáles Castañeda",
+            pais: "Perú"
+        }
+    }
+)
+/*
+El operador $set se utiliza para actualizar campos específicos
+de un documento. Si el campo especificado no existe en el 
+documento, $set lo crea y asigna el valor indicado
+*/
+
+db.clients.find(
+    {
+        _id: ObjectId('680453395c526566c1e04bd7')
+    },
+    {
+        _id: 0,
+        nombre: 1,
+        apellidos: 1,
+        telefono: 1,
+        pais: 1
+    }
+)

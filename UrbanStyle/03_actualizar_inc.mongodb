@@ -1,0 +1,33 @@
+// Empezamos a crear una base de datos UrbanStyle Store
+
+use("UrbanStyle_store")
+
+/* $inc
+Este operador permite incrementar valores de atributos que sean 
+de tipo números, para ello tenemos el siguiente ejemplo: veremos 
+de incrementar en 3000 el precio del segundo producto 
+*/
+
+// Actualizar la cantidad de Chaqueta de Invierno en 450
+db.products.updateOne(
+    { 
+        _id: ObjectId('68045508e622ff7430320087') 
+    },
+    {
+        $inc: { cantidad: 450 } // cantidad a incrementar
+    }
+)
+
+// Listar el documento para validar
+db.products.find(
+    { 
+        _id: ObjectId('68045508e622ff7430320087')
+    },
+    {
+        _id: 0,
+        nombre: 1,
+        marca: 1,
+        tipo: 1,
+        cantidad: 1
+    }
+)
