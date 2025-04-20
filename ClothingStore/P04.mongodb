@@ -1,0 +1,26 @@
+//usar base de datos
+use ("dbClothingStore")
+
+//Eliminar
+db.prendas.deleteOne(
+    {_id: ObjectId('6802fa95420a043a8ba7a578')}
+)
+
+db.prendas.deleteMany({
+    Stock: {$lt: 30}
+})
+
+
+db.clientes.deleteOne(
+    {
+        Nombre: "María",
+        Apellido: "López"
+    }
+)
+
+
+db.prendas.deleteMany({})
+
+db.clientes.drop()
+
+db.clientes.find()

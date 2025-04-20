@@ -1,0 +1,138 @@
+//crear base de datos
+use ("dbClothingStore")
+
+//Insertar uno por uno en la colección Prendas
+db.prendas.insertOne(
+    {
+        Nombre: "Camisa Formal",
+        Marca: "H&M",
+        Categorias: [
+            {categoria: "Ropa Formal"},
+            {categoria: "Camisas"},
+            {categoria: "Hombres"}
+        ],
+        Stock: 50,
+        PrecioUnitario: 35.50
+    }
+)
+
+db.prendas.insertOne(
+    {
+        Nombre: "Pantalones Jeans",
+        Marca: "Levi's",
+        Categorias: [
+            {categoria: "Ropa Casual"},
+            {categoria: "Pantalones"},
+            {categoria: "Unisex"}
+        ],
+        Stock: 100,
+        PrecioUnitario: 45.00
+    }
+)
+
+db.prendas.insertOne(
+    {
+        Nombre: "Vestido de Verano",
+        Marca: "Zara",
+        Categorias: [
+            {categoria: "Ropa Casual"},
+            {categoria: "Vestidos"},
+            {categoria: "Mujeres"}
+        ],
+        Stock: 30,
+        PrecioUnitario: 29.99
+    }
+)
+
+db.prendas.insertOne(
+    {
+        Nombre: "Chompa de Lana",
+        Marca: "Uniqlo",
+        Categorias: [
+            {categoria: "Ropa de Invierno"},
+            {categoria: "Chompas"},
+            {categoria: "Unisex"},
+            {categoria: "Mujeres"}
+        ],
+        Stock: 75,
+        PrecioUnitario: 89.99
+    }
+)
+
+db.prendas.insertOne(
+    {
+        Nombre: "Casaca de Cuero",
+        Marca: "Gucci",
+        Categorias: [
+            {categoria: "Ropa de Invierno"},
+            {categoria: "Unisex"}
+        ],
+        Stock: 20,
+        PrecioUnitario: 299.99
+    }
+)
+
+
+//Insertar uno por uno en la colección Cliente
+db.clientes.insertMany([
+    {
+        Codigo: "C001",
+        Nombre: "Juan",
+        Apellido: "Pérez",
+        FechaNacimiento: new Date("1990-05-15"),
+        Email: "juan.perez@gmail.com",
+        CategoriasInteres: [
+            {categoria: "Ropa Formal"},
+            {categoria: "Camisas"},
+            {categoria: "Hombres"}
+        ]
+    }, 
+
+    {
+        Codigo: "C002",
+        Nombre: "Ana",
+        Apellido: "Gómez",
+        FechaNacimiento: null,
+        Email: "ana.gomez@outlook.com",
+        CategoriasInteres: [
+            {categoria: "Ropa Casual"},
+            {categoria: "Vestidos"},
+            {categoria: "Mujeres"},
+            {categoria: "Accesorios"}
+        ]
+    },
+
+    {
+        Codigo: "C003",
+        Nombre: "Luis",
+        Apellido: "Martínez",
+        FechaNacimiento: new Date("1988-11-30"),
+        Email: null,
+        CategoriasInteres: null
+    }, 
+
+    {
+        Codigo: "C004",
+        Nombre: "María",
+        Apellido: "López",
+        FechaNacimiento: new Date("1988-02-17"),
+        Email: "maria.lopez@yahoo.com",
+        CategoriasInteres: [
+            {categoria: "Ropa de Invierno"},
+            {categoria: "Mujeres"}
+        ]
+    },
+    
+    {
+        Codigo: "C005",
+        Nombre: "Sofía",
+        Apellido: "Ramírez",
+        FechaNacimiento: new Date("1993-09-25"),
+        Email: "sofia.ramirez@outlook.com",
+        CategoriasInteres: [
+            {categoria: "Ropa Casual"},
+            {categoria: "Accesorios"},
+            {categoria: "Mujeres"}
+        ]
+    }
+])

@@ -1,0 +1,33 @@
+//usar base de datos
+use ("dbClothingStore")
+
+//Actualizar
+db.prendas.updateOne(
+    {Nombre: "Vestido de Verano"},
+    {
+        $set: {Nombre: "Vestido Elegante"}
+    }
+)
+
+db.prendas.updateOne(
+    {Nombre: "Casaca de Cuero"},
+    {
+        $set: {Precio: 799.99}
+    }
+)
+
+db.clientes.updateOne(
+    {Nombre: "Ana", Apellido:"Gómez"},
+    {
+        $set: {FechaNacimiento: new Date("2006-06-06")}
+    }
+)
+
+db.clientes.updateOne(
+    {Codigo: "C001"},
+    {
+        $set: {Email: "juan.pe@yahoo.com"}
+    }
+)
+
+db.clientes.find()

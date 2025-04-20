@@ -1,0 +1,19 @@
+//usar base de datos
+use ("dbClothingStore")
+
+//Listar los 3 primeros de la coleccion prendas
+db.prendas.find().limit(3)
+
+//Listar los 2 primeros de la coleccion clientes
+db.clientes.find().limit(2)
+
+//Listar unicamente los atributos indicados
+db.clientes.find({},{
+    Nombre: 1,
+    Apellido: 1,
+    Correo: 1,
+    CategoriasInteres: 1
+})
+
+//Listar los documentos cuya cantidad sea igual o mayor a 50
+db.prendas.find({Stock: {$gte: 50}})
